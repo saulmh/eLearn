@@ -1,0 +1,12 @@
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\bin\Debug\netcoreapp2.0\eLearn.deps.json
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\bin\Debug\netcoreapp2.0\eLearn.runtimeconfig.json
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\bin\Debug\netcoreapp2.0\eLearn.runtimeconfig.dev.json
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\bin\Debug\netcoreapp2.0\eLearn.dll
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\bin\Debug\netcoreapp2.0\eLearn.pdb
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.csproj.CoreCompileInputs.cache
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.AssemblyInfoInputs.cache
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.AssemblyInfo.cs
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.dll
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.pdb
+C:\Users\anrot\Documents\Visual Studio 2017\Projects\eLearn\eLearn\obj\Debug\netcoreapp2.0\eLearn.csprojResolveAssemblyReference.cache
