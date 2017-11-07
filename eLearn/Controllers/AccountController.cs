@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using eLearn.Models;
 using eLearn.Models.AccountViewModels;
 using eLearn.Services;
+using eLearn.Data;
 
 namespace eLearn.Controllers
 {
@@ -220,11 +221,28 @@ namespace eLearn.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    PaternalSurname = model.PaternalName,
+                    MaternalSurname = model.MaternalName,
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    if (_userManager.Users.Count() < 2)
+                    {
+                        await _userManager.AddToRoleAsync(user, "Administrator");
+                    }
+                    else
+                    {
+                        string t = ((RoleEnumViewModel)model.Role).ToString();
+                        await _userManager.AddToRoleAsync(user, t);
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);

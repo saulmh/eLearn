@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @using eLearn.Models
 
 @inject SignInManager<ApplicationUser> SignInManager
@@ -6,21 +6,167 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
-            </li>
-        </ul>
-    </form>
+    @if (User.IsInRole("Student"))
+    {
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-side">
+                    <ul class="nav" id="main-menu">
+                        <li class="text-center">
+                            <img src="~/images/logo.png" class="user-image img-responsive">
+                            <p style="color:white;">
+                                Hola @UserManager.GetUserAsync(User).Result.Name @UserManager.GetUserAsync(User).Result.PaternalSurname!
+                                
+                                <br><br>
+                                Bienvenido a la mejor plataforma educativa donde aprendes en línea.
+                                <br>
+                        </li>
+                        <li>
+                            <a href="table.html"><i class="fa fa-user fa-3x" aria-hidden="true"></i> Mi perfil</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search fa-3x"></i> Buscar cursos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Por categoría</a>
+                                </li>
+                                <li>
+                                    <a href="#">Por nombre</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ver todos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="ui.html"><i class="fa fa-list-ul fa-3x"></i> Mis Cursos</a>
+                        </li>
+                        <li>
+                            <a href="tab-panel.html"><i class="fa fa-envelope-o fa-3x"></i> Mensajes</a>
+                        </li>
+                        <li>
+                            <a href="chart.html"><i class="fa fa-question fa-3x"></i> Ayuda</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-arrow-circle-left fa-3x"></i>
+                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </nav>
+    }
+    else
+    {
+        @if (User.IsInRole("Professor"))
+        {
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-side">
+                        <ul class="nav" id="main-menu">
+                            <li class="text-center">
+                                <img src="~/images/logo.png" class="user-image img-responsive">
+                                <p style="color:white;">
+                                    Hola @UserManager.GetUserAsync(User).Result.Name @UserManager.GetUserAsync(User).Result.PaternalSurname!
+                                    <br><br>
+                                    Bienvenido a la mejor plataforma educativa donde aprendes en línea.
+                                    <br> </p>
+                            </li>
+                            <li>
+                                <a href="table.html"><i class="fa fa-user fa-3x" aria-hidden="true"></i> Mi perfil</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-search fa-3x"></i> Cursos<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Crear curso</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Mis cursos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ver todos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="ui.html"><i class="fa fa-list-ul fa-3x"></i> Mis Cursos</a>
+                            </li>
+                            <li>
+                                <a href="tab-panel.html"><i class="fa fa-envelope-o fa-3x"></i> Mensajes</a>
+                            </li>
+                            <li>
+                                <a href="chart.html"><i class="fa fa-question fa-3x"></i> Ayuda</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-arrow-circle-left fa-3x"></i>
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </nav>
+        }
+        else
+        {
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-side">
+                        <ul class="nav" id="main-menu">
+                            <li class="text-center">
+                                <img src="~/images/logo.png" class="user-image img-responsive">
+                                <p style="color:white;">
+                                    
+                                    Hola @UserManager.GetUserAsync(User).Result.Name @UserManager.GetUserAsync(User).Result.PaternalSurname!
+                                    <br><br>
+                                    Bienvenido administrador. ¿Qué deseas hacer?
+                                    <br>
+                            </li>
+                            <li>
+                                <a href="table.html"><i class="fa fa-user fa-3x" aria-hidden="true"></i> Mi perfil</a>
+                            </li>
+                            <li>
+                                <a href="ui.html"><i class="fa fa-gears fa-3x"></i> Gestionar Cursos</a>
+                            </li>
+                            <li>
+                                <a href="ui.html"><i class="fa fa-users fa-3x"></i> Gestionar Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="ui.html"><i class="fa fa-list-ul fa-3x"></i> Control de Categorías</a>
+                            </li>
+                            <li>
+                                <a href="tab-panel.html"><i class="fa fa-envelope-o fa-3x"></i> Mensajes</a>
+                            </li>
+                            <li>
+                                <a href="chart.html"><i class="fa fa-question fa-3x"></i> Ayuda</a>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </nav>
+        }
+    }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
-    </ul>
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="~/images/logo.png" class="user-image img-responsive">
+                    <p style="color:white;">
+                        
+                        <br><br>
+                        Bienvenido invitado.
+                        <br>
+                </li>
+                <li><a asp-area="" asp-controller="Account" asp-action="Login">Ingresar</a></li>
+                <li><a asp-area="" asp-controller="Account" asp-action="Register">Registrar usuario nuevo</a></li>
+                
+            </ul>
+        </div>
+    </nav>
 }

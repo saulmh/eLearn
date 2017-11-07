@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,16 +24,16 @@ namespace eLearn.Data
 
     public enum Roles
     {
-        Sudo,
-        Student,
         Administrator,
+        Student,
         Professor,
     }
 
     public enum RoleEnumViewModel
     {
+        [Display(Name = "Estudiante")]
         Student,
-        Administrator,
-        Author,
+        [Display(Name = "Professor")]
+        Professor,
     }
 }
