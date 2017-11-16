@@ -82,8 +82,6 @@ namespace eLearn.Data
                 .WithMany(m => m.LessonProgress)
                 .HasForeignKey(mt => mt.LessonID)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
         }
     }
 }

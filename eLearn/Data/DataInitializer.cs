@@ -19,6 +19,7 @@ namespace eLearn.Data
                     await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
+
         }
     }
 
